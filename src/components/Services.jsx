@@ -1,6 +1,10 @@
+import { useEffect, useRef, useState } from 'react'
 import './Services.css'
 
 function Services() {
+  const [visibleCards, setVisibleCards] = useState([])
+  const cardsRef = useRef([])
+
   const services = [
     {
       icon: (
@@ -41,14 +45,8 @@ function Services() {
     {
       icon: (
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/>
-          <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
-          <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/>
-          <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/>
-          <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/>
-          <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
-          <path d="M10 9.5C10 10.33 9.33 11 8.5 11h-5C2.67 11 2 10.33 2 9.5S2.67 8 3.5 8h5c.83 0 1.5.67 1.5 1.5z"/>
-          <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>
+          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+          <path d="M12 6v6l4 2"/>
         </svg>
       ),
       title: "Ansiedade e Estresse",
@@ -82,6 +80,29 @@ function Services() {
     }
   ]
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index)
+            setTimeout(() => {
+              setVisibleCards((prev) => [...prev, index])
+            }, index * 100)
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    cardsRef.current.forEach((card) => {
+      if (card) observer.observe(card)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section id="services" className="services">
       <div className="container">
@@ -97,8 +118,16 @@ function Services() {
 
         <div className="services-grid">
           {services.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon">{service.icon}</div>
+            <div 
+              key={index} 
+              ref={(el) => cardsRef.current[index] = el}
+              data-index={index}
+              className={`service-card ${visibleCards.includes(index) ? 'visible' : ''}`}
+            >
+              <div className="service-icon-wrapper">
+                <div className="service-icon">{service.icon}</div>
+                <div className="service-icon-bg"></div>
+              </div>
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               <ul className="service-features">

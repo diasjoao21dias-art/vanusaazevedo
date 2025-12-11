@@ -15,8 +15,8 @@ function Hero() {
         <div className="hero-content">
           <span className="hero-badge animate-fade-in">CRP 04/635778</span>
           <h1 className="hero-title animate-fade-in">
-            Cuidar da mente é o primeiro passo para uma 
-            <span className="highlight"> vida plena</span>
+            Cuidar da mente é o primeiro passo para uma{' '}
+            <span className="highlight">vida plena</span>
           </h1>
           <p className="hero-description animate-fade-in">
             Olá, sou Vanusa Azevedo, psicóloga dedicada a oferecer um espaço 

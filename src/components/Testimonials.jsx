@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Testimonials.css'
 
 function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
 
   const testimonials = [
     {
@@ -22,19 +23,32 @@ function Testimonials() {
     }
   ]
 
+  const changeSlide = (newIndex) => {
+    if (isAnimating) return
+    setIsAnimating(true)
+    setActiveIndex(newIndex)
+    setTimeout(() => setIsAnimating(false), 500)
+  }
+
   const nextTestimonial = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length)
+    changeSlide((activeIndex + 1) % testimonials.length)
   }
 
   const prevTestimonial = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+    changeSlide((activeIndex - 1 + testimonials.length) % testimonials.length)
   }
+
+  useEffect(() => {
+    const interval = setInterval(nextTestimonial, 6000)
+    return () => clearInterval(interval)
+  }, [activeIndex])
 
   return (
     <section id="testimonials" className="testimonials">
       <div className="testimonials-bg">
         <div className="bg-shape bg-1"></div>
         <div className="bg-shape bg-2"></div>
+        <div className="bg-pattern"></div>
       </div>
 
       <div className="container">
@@ -52,15 +66,35 @@ function Testimonials() {
                 <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
               </svg>
             </div>
-            <p className="testimonial-text">{testimonials[activeIndex].text}</p>
-            <div className="testimonial-author">
-              <div className="author-avatar">
-                {testimonials[activeIndex].author.charAt(0)}
-              </div>
-              <div className="author-info">
-                <span className="author-name">{testimonials[activeIndex].author}</span>
-                <span className="author-role">{testimonials[activeIndex].role}</span>
-              </div>
+            <div className="testimonial-content">
+              {testimonials.map((testimonial, index) => (
+                <div 
+                  key={index}
+                  className={`testimonial-item ${index === activeIndex ? 'active' : ''}`}
+                >
+                  <p className="testimonial-text">{testimonial.text}</p>
+                  <div className="testimonial-author">
+                    <div className="author-avatar">
+                      {testimonial.author.charAt(0)}
+                    </div>
+                    <div className="author-info">
+                      <span className="author-name">{testimonial.author}</span>
+                      <span className="author-role">{testimonial.role}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="testimonial-progress">
+              {testimonials.map((_, index) => (
+                <div 
+                  key={index} 
+                  className={`progress-bar ${index === activeIndex ? 'active' : ''}`}
+                  onClick={() => changeSlide(index)}
+                >
+                  <div className="progress-fill"></div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -75,7 +109,7 @@ function Testimonials() {
                 <button
                   key={index}
                   className={`dot ${index === activeIndex ? 'active' : ''}`}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => changeSlide(index)}
                   aria-label={`Depoimento ${index + 1}`}
                 />
               ))}

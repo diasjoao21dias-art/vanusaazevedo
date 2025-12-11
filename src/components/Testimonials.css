@@ -14,21 +14,29 @@
   position: absolute;
   border-radius: 50%;
   background: var(--white);
-  opacity: 0.05;
 }
 
 .bg-1 {
-  width: 400px;
-  height: 400px;
-  top: -100px;
-  right: -100px;
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  right: -150px;
+  opacity: 0.03;
 }
 
 .bg-2 {
-  width: 300px;
-  height: 300px;
-  bottom: -100px;
-  left: -50px;
+  width: 400px;
+  height: 400px;
+  bottom: -150px;
+  left: -100px;
+  opacity: 0.03;
+}
+
+.bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 .testimonials .section-tag {
@@ -63,11 +71,35 @@
   border-radius: 24px;
   text-align: center;
   position: relative;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
 }
 
 .quote-icon {
   color: var(--secondary);
   margin-bottom: 20px;
+}
+
+.testimonial-content {
+  position: relative;
+  min-height: 180px;
+}
+
+.testimonial-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial-item.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
 .testimonial-text {
@@ -114,6 +146,38 @@
   color: var(--text-light);
 }
 
+.testimonial-progress {
+  display: flex;
+  gap: 8px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.progress-bar {
+  width: 60px;
+  height: 4px;
+  background: var(--secondary);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  width: 0;
+  border-radius: 2px;
+}
+
+.progress-bar.active .progress-fill {
+  animation: progressFill 6s linear forwards;
+}
+
+@keyframes progressFill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
 .slider-controls {
   display: flex;
   align-items: center;
@@ -137,6 +201,7 @@
 .slider-btn:hover {
   background: var(--white);
   color: var(--primary);
+  transform: scale(1.1);
 }
 
 .slider-dots {
@@ -154,7 +219,7 @@
 
 .dot.active {
   background: var(--accent);
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 .dot:hover {
@@ -168,5 +233,13 @@
 
   .testimonial-text {
     font-size: 1.1rem;
+  }
+
+  .testimonial-content {
+    min-height: 200px;
+  }
+
+  .progress-bar {
+    width: 40px;
   }
 }
