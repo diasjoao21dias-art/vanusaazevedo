@@ -12,10 +12,10 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Landing Page"
+args = "Start application"
 
 [[workflows.workflow]]
-name = "Landing Page"
+name = "Start application"
 author = "agent"
 
 [[workflows.workflow.tasks]]
