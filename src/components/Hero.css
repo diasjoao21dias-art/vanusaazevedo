@@ -332,8 +332,7 @@
   }
 
   .hero-quote {
-    position: relative;
-    margin-top: -30px;
+    display: none;
   }
 
   .scroll-indicator {
