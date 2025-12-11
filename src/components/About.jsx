@@ -54,7 +54,7 @@ function About() {
               <span className="highlight"> bem-estar emocional</span>
             </h2>
             <p className="about-text">
-              Sou Vanusa Azevedo, psicóloga registrada no CRP 04/635778, com formação 
+              Sou Vanusa Azevedo, psicóloga registrada no CRP 04/63578, com formação 
               sólida e comprometida em oferecer atendimento psicológico de qualidade.
             </p>
             <p className="about-text">

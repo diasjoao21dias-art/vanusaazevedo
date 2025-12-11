@@ -61,7 +61,7 @@ function Contact() {
               </svg>
               <div>
                 <span>Registro Profissional</span>
-                <strong>CRP 04/635778</strong>
+                <strong>CRP 04/63578</strong>
               </div>
             </div>
           </div>

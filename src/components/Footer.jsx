@@ -18,7 +18,7 @@ function Footer() {
               Cuidando da sua saúde mental com acolhimento e profissionalismo.
             </p>
             <div className="footer-crp">
-              CRP 04/635778
+              CRP 04/63578
             </div>
           </div>
 

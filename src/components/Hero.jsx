@@ -13,7 +13,7 @@ function Hero() {
       
       <div className="container hero-container">
         <div className="hero-content">
-          <span className="hero-badge animate-fade-in">CRP 04/635778</span>
+          <span className="hero-badge animate-fade-in">CRP 04/63578</span>
           <h1 className="hero-title animate-fade-in">
             Cuidar da mente é o primeiro passo para uma{' '}
             <span className="highlight">vida plena</span>
