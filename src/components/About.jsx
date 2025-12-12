@@ -54,18 +54,19 @@ function About() {
               <span className="highlight"> bem-estar emocional</span>
             </h2>
             <p className="about-text">
-              Sou Vanusa Azevedo, psicóloga registrada no CRP 04/63578, com formação 
-              sólida e comprometida em oferecer atendimento psicológico de qualidade.
+              Sou Vanusa Azevedo, psicóloga registrada no CRP 04/63578, e encontrei na Terapia Cognitivo-Comportamental (TCC) o método e, na escuta acolhedora, a minha missão. Atuo convivendo com histórias que me ensinam, diariamente, sobre a força humana, a dor silenciosa e a esperança e o cuidado.
             </p>
             <p className="about-text">
-              Minha missão é proporcionar um espaço de acolhimento onde você possa 
-              explorar suas emoções, superar desafios e desenvolver ferramentas 
-              para uma vida mais equilibrada e satisfatória.
+              Meu olhar é sensível ao que vai além da superfície. Acredito profundamente na transformação que acontece quando alguém é ouvido de verdade — com respeito, sem julgamentos, com empatia. Meu trabalho é ajudar você a explorar seus pensamentos, emoções e comportamentos, e juntos construirmos caminhos mais leves e possíveis e uma qualidade de vida.
             </p>
             <p className="about-text">
-              Acredito que cada pessoa possui dentro de si os recursos necessários 
-              para o seu desenvolvimento pessoal, e meu papel é auxiliar nessa 
-              jornada de autodescoberta e transformação.
+              Ofereço atendimentos clínicos online ou presencial.
+            </p>
+            <p className="about-text">
+              Se sentir que é o momento de cuidar de você, estou por aqui. Com escuta, presença e compromisso.
+            </p>
+            <p className="about-text">
+              Acredito que cada pessoa possui dentro de si os recursos necessários para o seu desenvolvimento pessoal, e meu papel é auxiliar nessa jornada de autodescoberta e desenvolvimento interno.
             </p>
             
             <div className="about-features">
