@@ -38,8 +38,7 @@ function About() {
         <div className="about-grid">
           <div className="about-image-section">
             <div className="about-image-wrapper">
-              <div className="about-image-bg"></div>
-              <div className="about-image-frame"></div>
+              <img src="/vanusa-about.webp" alt="Vanusa Azevedo - Psicóloga" className="about-photo" />
               <div className="about-badge">
                 <span className="badge-number">+5</span>
                 <span className="badge-text">Anos de Experiência</span>
