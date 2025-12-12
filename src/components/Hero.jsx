@@ -40,15 +40,10 @@ function Hero() {
         
         <div className="hero-visual animate-fade-in">
           <div className="hero-image-wrapper">
-            <div className="hero-image-bg"></div>
+            <img src="/vanusa-hero.webp" alt="Vanusa Azevedo - Psicóloga" className="hero-photo" />
             <div className="hero-decorative">
               <div className="deco-circle deco-1"></div>
               <div className="deco-circle deco-2"></div>
-              <div className="deco-leaf">
-                <svg viewBox="0 0 100 100" fill="none">
-                  <path d="M50 10C50 10 20 30 20 60C20 80 35 95 50 95C65 95 80 80 80 60C80 30 50 10 50 10Z" fill="currentColor"/>
-                </svg>
-              </div>
             </div>
             <div className="hero-quote">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" opacity="0.3">
