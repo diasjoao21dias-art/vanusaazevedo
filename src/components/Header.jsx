@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,7 +15,15 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [location])
+
   const scrollToSection = (id) => {
+    if (location.pathname !== '/') {
+      window.location.href = `/#${id}`
+      return
+    }
     const element = document.getElementById(id)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
@@ -24,10 +34,10 @@ function Header() {
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
-        <div className="logo" onClick={() => scrollToSection('hero')}>
+        <Link to="/" className="logo">
           <span className="logo-text">Vanusa Azevedo</span>
           <span className="logo-subtitle">Psicóloga - Especialista em Saúde Mental</span>
-        </div>
+        </Link>
         
         <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`}>
           <ul className="nav-list">
@@ -35,6 +45,7 @@ function Header() {
             <li><a onClick={() => scrollToSection('services')}>Serviços</a></li>
             <li><a onClick={() => scrollToSection('approach')}>Abordagem</a></li>
             <li><a onClick={() => scrollToSection('testimonials')}>Depoimentos</a></li>
+            <li><Link to="/blog">Blog</Link></li>
             <li><a onClick={() => scrollToSection('contact')} className="nav-cta">Agendar Consulta</a></li>
           </ul>
         </nav>
