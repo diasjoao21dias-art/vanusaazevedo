@@ -140,7 +140,7 @@
 
 @media (max-width: 768px) {
   .blog-section {
-    padding: 60px 0;
+    padding: 60px 20px;
   }
 
   .blog-grid {
@@ -150,6 +150,13 @@
 
   .blog-filters {
     margin-bottom: 40px;
+    gap: 10px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
 
   .blog-card {
@@ -157,6 +164,17 @@
   }
 
   .blog-card h3 {
-    font-size: 1.15rem;
+    font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .blog-excerpt {
+    font-size: 0.85rem;
+  }
+
+  .blog-category {
+    font-size: 0.7rem;
+    padding: 4px 10px;
   }
 }

@@ -31,13 +31,22 @@ function Header() {
     }
   }
 
+  const handleLogoClick = (e) => {
+    e.preventDefault()
+    if (location.pathname === '/') {
+      scrollToSection('hero')
+    } else {
+      window.location.href = '/#hero'
+    }
+  }
+
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container header-container">
-        <Link to="/" className="logo">
+        <a href="/" onClick={handleLogoClick} className="logo">
           <span className="logo-text">Vanusa Azevedo</span>
           <span className="logo-subtitle">Psicóloga - Especialista em Saúde Mental</span>
-        </Link>
+        </a>
         
         <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`}>
           <ul className="nav-list">

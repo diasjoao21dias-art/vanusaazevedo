@@ -7,6 +7,7 @@ function Blog() {
   const [selectedCategory, setSelectedCategory] = useState('Todos')
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetch('/blog-data.json')
       .then(res => res.json())
       .then(data => setArticles(data))

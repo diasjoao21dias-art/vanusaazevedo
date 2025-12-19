@@ -10,6 +10,7 @@ function BlogPost() {
   const [allArticles, setAllArticles] = useState([])
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetch('/blog-data.json')
       .then(res => res.json())
       .then(data => {
