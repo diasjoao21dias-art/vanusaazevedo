@@ -227,7 +227,8 @@
 
 @media (max-width: 768px) {
   .blog-post-section {
-    padding: 60px 20px;
+    padding: 140px 20px 60px;
+    margin-top: 0;
   }
 
   .blog-post {
@@ -236,9 +237,10 @@
   }
 
   .post-header h1 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    margin-top: 0;
   }
 
   .post-heading {
