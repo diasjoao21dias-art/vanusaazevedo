@@ -83,6 +83,9 @@ function Footer() {
 
         <div className="footer-bottom">
           <p>&copy; {currentYear} Vanusa Azevedo - Psicóloga. Todos os direitos reservados.</p>
+          <p className="developer-info">
+            Desenvolvido por <a href="https://oliviumsistemas.com.br" target="_blank" rel="noopener noreferrer">Olivium Sistemas</a>
+          </p>
         </div>
       </div>
     </footer>
